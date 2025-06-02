@@ -4,6 +4,7 @@
 import type { Category, SearchResult } from '@/types';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -74,8 +75,10 @@ export default function AdminPage() {
         <div className="absolute top-0 right-0">
           <ThemeToggle />
         </div>
-        <h1 className="text-4xl font-bold text-primary font-headline pt-4">ShellBase</h1>
-        <p className="text-muted-foreground">Browse and test your CLI cheatsheet data.</p>
+        <div className="flex justify-center pt-4">
+          <Image src="/shellbase.png" alt="ShellBase Logo" width={200} height={50} priority />
+        </div>
+        <p className="text-muted-foreground mt-2">Browse and test your CLI cheatsheet data.</p>
       </header>
 
       <section className="mb-12">
