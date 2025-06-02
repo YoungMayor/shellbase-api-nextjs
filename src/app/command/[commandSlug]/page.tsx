@@ -78,7 +78,7 @@ export default async function CommandPage({ params }: CommandPageProps) {
                     </code>
                   )
                 },
-                pre: ({node, ...props}) => <div {...props} />, // pre is handled by code component logic above
+                pre: ({node, ...props}) => <div {...props} />, 
                 a: ({node, ...props}) => <a className="text-accent hover:underline" {...props} />,
                 strong: ({node, ...props}) => <strong className="font-semibold" {...props} />,
                 em: ({node, ...props}) => <em className="italic" {...props} />,
@@ -90,7 +90,7 @@ export default async function CommandPage({ params }: CommandPageProps) {
         </CardContent>
       </Card>
       <footer className="text-center mt-12 py-6 border-t">
-        <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} ShellBase API</p>
+        <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} MayR Labs. ShellBase is a product of MayR Labs.</p>
       </footer>
     </div>
   );

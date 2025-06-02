@@ -19,7 +19,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   let subcommands: Subcommand[] = [];
   let category: Category | null = null;
-  let fetchError: string | null = null; // For errors not handled by notFound
+  let fetchError: string | null = null; 
 
   try {
     const allCategories = await getCategories();
@@ -32,8 +32,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     subcommands = await getSubcommandsForCategory(categorySlug);
   } catch (err) {
     console.error(`Error fetching data for category ${categorySlug}:`, err);
-    // Most "not found" scenarios are handled by the explicit notFound() call.
-    // This catch is for other unexpected errors during data fetching.
     fetchError = err instanceof Error ? err.message : 'An unknown server error occurred.';
   }
 
@@ -41,10 +39,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     return <div className="container mx-auto p-8 text-center text-destructive">{fetchError}</div>;
   }
 
-  // Category should be guaranteed to be non-null here due to the notFound() call,
-  // but as a fallback or if logic changes:
   if (!category) {
-    // This path should ideally not be reached if notFound() works as expected.
     return <div className="container mx-auto p-8 text-center">Category details not found.</div>;
   }
 
@@ -91,7 +86,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         ))}
       </div>
        <footer className="text-center mt-12 py-6 border-t">
-        <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} ShellBase API</p>
+        <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} MayR Labs. ShellBase is a product of MayR Labs.</p>
       </footer>
     </div>
   );

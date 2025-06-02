@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -294,7 +295,7 @@ export default function ApiDocsPage() {
         ))}
       </Accordion>
       <footer className="text-center mt-12 py-6 border-t">
-        <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} ShellBase</p>
+        <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} MayR Labs. ShellBase is a product of MayR Labs.</p>
       </footer>
     </div>
   );
