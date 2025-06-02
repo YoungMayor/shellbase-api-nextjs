@@ -1,29 +1,29 @@
-import type { Category } from '@/types';
-import { gitIcons, bashIcons, dockerIcons, kubectlIcons } from './icons';
+import type { Category } from "@/types";
+import { gitIcons, bashIcons, dockerIcons, kubectlIcons } from "./icons";
+import { categoryBuilder } from "@/lib/data-builder";
 
 export const categories: Category[] = [
-  {
-    slug: 'git',
-    name: 'Git',
-    description: 'Distributed version control system for tracking changes in source code.',
-    icon: gitIcons,
-  },
-  {
-    slug: 'bash',
-    name: 'Bash',
-    description: 'Unix shell and command language for interacting with the operating system.',
-    icon: bashIcons,
-  },
-  {
-    slug: 'docker',
-    name: 'Docker',
-    description: 'Platform for developing, shipping, and running applications in containers.',
-    icon: dockerIcons,
-  },
-  {
-    slug: 'kubectl',
-    name: 'Kubectl',
-    description: 'Command-line tool for controlling Kubernetes clusters.',
-    icon: kubectlIcons,
-  },
+  categoryBuilder(
+    "Bash",
+    "Unix shell and command language for interacting with the operating system.",
+    bashIcons
+  ),
+
+  categoryBuilder(
+    "Docker",
+    "Platform for developing, shipping, and running applications in containers.",
+    dockerIcons
+  ),
+
+  categoryBuilder(
+    "Git",
+    "Distributed version control system for tracking changes in source code.",
+    gitIcons
+  ),
+
+  categoryBuilder(
+    "Kubectl",
+    "Command-line tool for controlling Kubernetes clusters.",
+    kubectlIcons
+  ),
 ];
