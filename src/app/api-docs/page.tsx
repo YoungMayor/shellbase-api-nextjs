@@ -190,7 +190,7 @@ export default function ApiDocsPage() {
           <h1 className="text-3xl md:text-4xl font-bold text-primary font-headline">API Documentation & Tester</h1>
         </div>
         <p className="text-muted-foreground">
-          Explore and test the Cheatography API endpoints.
+          Explore and test the ShellBase API endpoints.
         </p>
       </header>
 
@@ -294,9 +294,8 @@ export default function ApiDocsPage() {
         ))}
       </Accordion>
       <footer className="text-center mt-12 py-6 border-t">
-        <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} Cheatography</p>
+        <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} ShellBase</p>
       </footer>
     </div>
   );
 }
-

@@ -1,6 +1,6 @@
-# 👐 Contributing to Cheatography
+# 👐 Contributing to ShellBase
 
-Thanks for your interest in contributing to **Cheatography** – a simple and powerful cheatsheet API for command-line tools!
+Thanks for your interest in contributing to **ShellBase** – a simple and powerful cheatsheet API for command-line tools!
 
 We welcome all contributions: adding new commands, improving documentation, fixing bugs, or suggesting features.
 
@@ -17,7 +17,7 @@ We welcome all contributions: adding new commands, improving documentation, fixi
 
 ## 📦 Adding New Commands or Categories
 
-Cheatography is structured around categories (like Git, Bash, Docker) and subcommands. Here's how to contribute:
+ShellBase is structured around categories (like Git, Bash, Docker) and subcommands. Here's how to contribute:
 
 ### ➕ Add a New Command (If Category exists)
 

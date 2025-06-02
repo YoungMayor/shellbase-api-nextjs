@@ -1,8 +1,8 @@
-# Cheatography
+# ShellBase
 
 **Your one-stop cheatsheet API for command-line power tools.**
 
-Cheatography is a modern, developer-friendly API and admin console that powers command-line cheatsheets for tools like `git`, `bash`, `docker`, and more — complete with an OpenAPI-like tester, markdown-based documentation, and Gemini AI-powered command help.
+ShellBase is a modern, developer-friendly API and admin console that powers command-line cheatsheets for tools like `git`, `bash`, `docker`, and more — complete with an OpenAPI-like tester, markdown-based documentation, and Gemini AI-powered command help.
 
 ---
 
@@ -53,11 +53,11 @@ Cheatography is a modern, developer-friendly API and admin console that powers c
 - ✅ Flutter mobile app powered by this API
 - 🔤 Multilingual support
 
-## 🧠 Why Cheatography?
+## 🧠 Why ShellBase?
 
 > _Because the command line is powerful — but remembering every flag, parameter, or obscure tool? That's what we're here for._
 
-Cheatography helps developers become more productive without switching contexts, Googling every other minute, or digging through man pages.
+ShellBase helps developers become more productive without switching contexts, Googling every other minute, or digging through man pages.
 
 ## 👐 Contributing
 

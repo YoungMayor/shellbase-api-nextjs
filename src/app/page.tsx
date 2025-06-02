@@ -73,7 +73,7 @@ export default function AdminPage() {
         <div className="absolute top-0 right-0">
           <ThemeToggle />
         </div>
-        <h1 className="text-4xl font-bold text-primary font-headline pt-4">Cheatography</h1>
+        <h1 className="text-4xl font-bold text-primary font-headline pt-4">ShellBase</h1>
         <p className="text-muted-foreground">Browse and test your CLI cheatsheet data.</p>
       </header>
 
@@ -152,7 +152,7 @@ export default function AdminPage() {
       </section>
        <footer className="text-center mt-12 py-6 border-t">
         <p className="text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} Cheatography. Built with Next.js.
+          &copy; {new Date().getFullYear()} ShellBase. Built with Next.js.
           <span className="mx-1">|</span> 
           <Link href="/api-docs" className="text-accent hover:underline">API Docs</Link>
         </p>

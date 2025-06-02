@@ -91,7 +91,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         ))}
       </div>
        <footer className="text-center mt-12 py-6 border-t">
-        <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} Cheatography API</p>
+        <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} ShellBase API</p>
       </footer>
     </div>
   );

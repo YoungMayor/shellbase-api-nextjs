@@ -4,8 +4,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
-  title: 'Cheatography',
-  description: 'Backend API and Admin Console for CLI Cheatsheets',
+  title: 'ShellBase',
+  description: 'ShellBase: Your one-stop cheatsheet API for command-line power tools.',
 };
 
 export default function RootLayout({

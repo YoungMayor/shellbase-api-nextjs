@@ -1,6 +1,6 @@
 # 🙌 Contributors
 
-Thanks to these amazing people for helping build Cheatography!
+Thanks to these amazing people for helping build ShellBase!
 
 | Name       | GitHub                                       | Contributions                  |
 | ---------- | -------------------------------------------- | ------------------------------ |

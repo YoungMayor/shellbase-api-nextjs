@@ -41,4 +41,4 @@ Refs #789
 
 ---
 
-Thank you for contributing to Cheatography! 💙
+Thank you for contributing to ShellBase! 💙
