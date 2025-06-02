@@ -14,26 +14,26 @@ The `git checkout` command is used to switch branches or restore working tree fi
 
 ## Examples
 Switch to an existing branch:
-\`\`\`bash
+```bash
 git checkout develop
-\`\`\`
+```
 
 Create a new branch and switch to it:
-\`\`\`bash
+```bash
 git checkout -b feature/new-login
-\`\`\`
+```
 
 Switch to the previous branch:
-\`\`\`bash
+```bash
 git checkout -
-\`\`\`
+```
 
 Discard changes in a specific file:
-\`\`\`bash
+```bash
 git checkout -- myfile.txt
-\`\`\`
+```
 
 Checkout a specific commit (detached HEAD state):
-\`\`\`bash
+```bash
 git checkout <commit-hash>
-\`\`\`
+```

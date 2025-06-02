@@ -15,26 +15,26 @@ The `git branch` command lets you create, list, rename, and delete branches.
 
 ## Examples
 List all local branches:
-\`\`\`bash
+```bash
 git branch
-\`\`\`
+```
 
 List all branches (local and remote):
-\`\`\`bash
+```bash
 git branch -a
-\`\`\`
+```
 
 Create a new branch:
-\`\`\`bash
+```bash
 git branch new-feature
-\`\`\`
+```
 
 Delete a branch:
-\`\`\`bash
+```bash
 git branch -d old-feature
-\`\`\`
+```
 
 Rename a branch:
-\`\`\`bash
+```bash
 git branch -m old-name new-name
-\`\`\`
+```

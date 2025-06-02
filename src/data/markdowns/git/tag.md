@@ -14,36 +14,36 @@ The `git tag` command is used to create, list, delete or verify a tag object sig
 
 ## Examples
 List all tags:
-\`\`\`bash
+```bash
 git tag
-\`\`\`
+```
 
 Create a lightweight tag:
-\`\`\`bash
+```bash
 git tag v1.0.0
-\`\`\`
+```
 
 Create an annotated tag:
-\`\`\`bash
+```bash
 git tag -a v1.0.1 -m "Version 1.0.1 release"
-\`\`\`
+```
 
 Tag an older commit:
-\`\`\`bash
+```bash
 git tag -a v0.9 <commit-hash> -m "Version 0.9 on an older commit"
-\`\`\`
+```
 
 Delete a tag:
-\`\`\`bash
+```bash
 git tag -d v1.0.0
-\`\`\`
+```
 
 Push a specific tag to remote:
-\`\`\`bash
+```bash
 git push origin v1.0.1
-\`\`\`
+```
 
 Push all tags to remote:
-\`\`\`bash
+```bash
 git push origin --tags
-\`\`\`
+```

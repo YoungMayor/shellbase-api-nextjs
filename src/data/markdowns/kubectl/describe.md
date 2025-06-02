@@ -13,30 +13,30 @@ The `kubectl describe` command shows details of a specific resource or group of 
 
 ## Examples
 Describe a node:
-\`\`\`bash
+```bash
 kubectl describe nodes my-node
-\`\`\`
+```
 
 Describe a pod in the current namespace:
-\`\`\`bash
+```bash
 kubectl describe pods/my-pod
-\`\`\`
+```
 
 Describe all pods in the namespace "my-ns" with label "app=nginx":
-\`\`\`bash
+```bash
 kubectl describe pods -n my-ns -l app=nginx
-\`\`\`
+```
 
 Describe a pod identified by type and name in `pod.json`:
-\`\`\`bash
+```bash
 kubectl describe -f pod.json
-\`\`\`
+```
 
 Describe all pods managed by a specific ReplicaSet:
-\`\`\`bash
+```bash
 # First, get the ReplicaSet name
 kubectl get rs
 # Then describe pods matching the ReplicaSet's selector
 # (Assuming ReplicaSet 'my-replicaset' has selector 'app=my-app')
 kubectl describe pods -l app=my-app
-\`\`\`
+```

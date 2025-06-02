@@ -15,21 +15,21 @@ The `ls` command lists directory contents.
 
 ## Examples
 List files in the current directory:
-\`\`\`bash
+```bash
 ls
-\`\`\`
+```
 
 List all files (including hidden) in long format:
-\`\`\`bash
+```bash
 ls -la
-\`\`\`
+```
 
 List files with human-readable sizes:
-\`\`\`bash
+```bash
 ls -lh
-\`\`\`
+```
 
 List files sorted by modification time (newest first):
-\`\`\`bash
+```bash
 ls -lt
-\`\`\`
+```

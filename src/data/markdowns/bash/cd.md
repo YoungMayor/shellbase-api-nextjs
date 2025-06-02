@@ -15,21 +15,21 @@ The `cd` command changes the current working directory.
 
 ## Examples
 Change to the `/var/log` directory:
-\`\`\`bash
+```bash
 cd /var/log
-\`\`\`
+```
 
 Move to the parent directory:
-\`\`\`bash
+```bash
 cd ..
-\`\`\`
+```
 
 Return to the home directory:
-\`\`\`bash
+```bash
 cd
-\`\`\`
+```
 
 Switch to the directory you were previously in:
-\`\`\`bash
+```bash
 cd -
-\`\`\`
+```

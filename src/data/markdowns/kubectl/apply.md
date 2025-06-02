@@ -15,26 +15,26 @@ The `kubectl apply` command applies a configuration to a resource by filename or
 
 ## Examples
 Apply the configuration in `pod.json` to a pod:
-\`\`\`bash
+```bash
 kubectl apply -f ./pod.json
-\`\`\`
+```
 
 Apply the JSON passed into stdin to a pod:
-\`\`\`bash
+```bash
 cat pod.json | kubectl apply -f -
-\`\`\`
+```
 
 Apply the configuration in all `.yaml`, `.yml`, and `.json` files in the `./my-dir/` directory:
-\`\`\`bash
+```bash
 kubectl apply -f ./my-dir/
-\`\`\`
+```
 
 Apply a Kustomization directory:
-\`\`\`bash
+```bash
 kubectl apply -k ./my-kustomization/
-\`\`\`
+```
 
 Apply and view changes before committing them to the cluster (dry run):
-\`\`\`bash
+```bash
 kubectl apply -f ./my-manifest.yaml --dry-run=client
-\`\`\`
+```

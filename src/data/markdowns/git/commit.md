@@ -12,16 +12,16 @@ The `git commit` command captures a snapshot of the project's currently staged c
 
 ## Examples
 Commit staged changes with a message:
-\`\`\`bash
+```bash
 git commit -m "Implemented user authentication"
-\`\`\`
+```
 
 Stage all tracked files and commit:
-\`\`\`bash
+```bash
 git commit -a -m "Fixed typos in documentation"
-\`\`\`
+```
 
 Amend the last commit:
-\`\`\`bash
+```bash
 git commit --amend -m "Corrected commit message for user auth"
-\`\`\`
+```

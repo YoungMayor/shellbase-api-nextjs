@@ -16,21 +16,21 @@ The `docker run` command creates a writeable container layer over the specified 
 
 ## Examples
 Run an Nginx container in detached mode, mapping port 8080 on host to 80 in container:
-\`\`\`bash
+```bash
 docker run -d -p 8080:80 --name my-nginx nginx
-\`\`\`
+```
 
 Run an Ubuntu container interactively and get a shell:
-\`\`\`bash
+```bash
 docker run -it ubuntu bash
-\`\`\`
+```
 
 Run a container that executes a command and then removes itself:
-\`\`\`bash
+```bash
 docker run --rm alpine echo "Hello from Alpine"
-\`\`\`
+```
 
 Run a container with a bind mount:
-\`\`\`bash
+```bash
 docker run -v $(pwd)/app:/usr/src/app my-app-image
-\`\`\`
+```

@@ -14,31 +14,31 @@ The `docker ps` command lists containers.
 
 ## Examples
 List running containers:
-\`\`\`bash
+```bash
 docker ps
-\`\`\`
+```
 
 List all containers (running and stopped):
-\`\`\`bash
+```bash
 docker ps -a
-\`\`\`
+```
 
 List only container IDs of all containers:
-\`\`\`bash
+```bash
 docker ps -aq
-\`\`\`
+```
 
 List containers that have exited:
-\`\`\`bash
+```bash
 docker ps -f "status=exited"
-\`\`\`
+```
 
 List containers with a specific name:
-\`\`\`bash
+```bash
 docker ps -f "name=my-nginx"
-\`\`\`
+```
 
 List containers using a custom format:
-\`\`\`bash
+```bash
 docker ps --format "{{.ID}}: {{.Image}} ({{.Status}})"
-\`\`\`
+```

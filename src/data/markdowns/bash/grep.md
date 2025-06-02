@@ -15,26 +15,26 @@ The `grep` command searches for patterns in each file. Patterns are specified by
 
 ## Examples
 Search for "error" in `server.log`:
-\`\`\`bash
+```bash
 grep "error" server.log
-\`\`\`
+```
 
 Search for "error" case-insensitively in `server.log`:
-\`\`\`bash
+```bash
 grep -i "error" server.log
-\`\`\`
+```
 
 Search recursively for "TODO" in the current directory:
-\`\`\`bash
+```bash
 grep -r "TODO" .
-\`\`\`
+```
 
 Count lines containing "warning" in `app.log`:
-\`\`\`bash
+```bash
 grep -c "warning" app.log
-\`\`\`
+```
 
 List files containing "debug":
-\`\`\`bash
+```bash
 grep -l "debug" *.py
-\`\`\`
+```

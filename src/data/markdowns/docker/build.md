@@ -14,21 +14,21 @@ The `docker build` command builds an image from a Dockerfile and a "context". Th
 
 ## Examples
 Build an image from the current directory:
-\`\`\`bash
+```bash
 docker build -t my-app:latest .
-\`\`\`
+```
 
 Build an image using a specific Dockerfile:
-\`\`\`bash
+```bash
 docker build -f Dockerfile.dev -t my-app:dev .
-\`\`\`
+```
 
 Build an image with build-time arguments:
-\`\`\`bash
+```bash
 docker build --build-arg APP_VERSION=1.2.3 -t my-app:1.2.3 .
-\`\`\`
+```
 
 Build an image from a Git repository:
-\`\`\`bash
+```bash
 docker build -t my-app github.com/username/my-repo#main:my-app-dir
-\`\`\`
+```

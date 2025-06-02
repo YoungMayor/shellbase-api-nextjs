@@ -14,31 +14,31 @@ The `kubectl get` command displays one or many resources.
 
 ## Examples
 List all pods in the current namespace:
-\`\`\`bash
+```bash
 kubectl get pods
-\`\`\`
+```
 
 List all pods in all namespaces:
-\`\`\`bash
+```bash
 kubectl get pods -A
-\`\`\`
+```
 
 List a particular deployment:
-\`\`\`bash
+```bash
 kubectl get deployment my-deployment
-\`\`\`
+```
 
 List all services in the namespace "my-ns":
-\`\`\`bash
+```bash
 kubectl get services -n my-ns
-\`\`\`
+```
 
 Get a pod's YAML definition:
-\`\`\`bash
+```bash
 kubectl get pod my-pod -o yaml
-\`\`\`
+```
 
 List pods with a specific label:
-\`\`\`bash
+```bash
 kubectl get pods -l app=my-app
-\`\`\`
+```
