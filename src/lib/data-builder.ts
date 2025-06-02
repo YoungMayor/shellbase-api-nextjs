@@ -1,4 +1,19 @@
-import { Subcommand } from "@/types";
+import { Category, IconSet, Subcommand } from "@/types";
+
+export function categoryBuilder(
+  name: string,
+  description: string,
+  icon: IconSet
+): Category {
+  const slug = name
+    .toLowerCase()
+    .trim()
+    .replace(/-+/g, "-")
+    .replace(/^-+/, "")
+    .replace(/-+$/, "");
+
+  return { slug, name, description, icon };
+}
 
 export function subCommandBuilder(
   categorySlug: string,
