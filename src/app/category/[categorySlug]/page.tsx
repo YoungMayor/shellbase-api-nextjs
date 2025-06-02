@@ -1,74 +1,59 @@
-"use client";
 
 import type { Subcommand, Category } from '@/types';
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useParams, useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ChevronLeft, Command, ExternalLink } from 'lucide-react';
 import IconRenderer from '@/components/common/IconRenderer';
+import { getCategories, getSubcommandsForCategory } from '@/lib/file-system';
+import { notFound } from 'next/navigation';
 
-export default function CategoryPage() {
-  const params = useParams();
-  const router = useRouter();
-  const categorySlug = params.categorySlug as string;
+interface CategoryPageProps {
+  params: {
+    categorySlug: string;
+  };
+}
 
-  const [subcommands, setSubcommands] = useState<Subcommand[]>([]);
-  const [category, setCategory] = useState<Category | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+export default async function CategoryPage({ params }: CategoryPageProps) {
+  const { categorySlug } = params;
 
-  useEffect(() => {
-    if (!categorySlug) return;
+  let subcommands: Subcommand[] = [];
+  let category: Category | null = null;
+  let fetchError: string | null = null; // For errors not handled by notFound
 
-    async function fetchData() {
-      setIsLoading(true);
-      setError(null);
-      try {
-        // Fetch category details (including icon)
-        const catRes = await fetch('/api/categories');
-        if (!catRes.ok) throw new Error('Failed to fetch categories');
-        const allCategories: Category[] = await catRes.json();
-        const currentCategory = allCategories.find(c => c.slug === categorySlug);
-        if (!currentCategory) {
-          throw new Error('Category not found');
-        }
-        setCategory(currentCategory);
+  try {
+    const allCategories = await getCategories();
+    category = allCategories.find(c => c.slug === categorySlug) || null;
 
-        // Fetch subcommands
-        const subRes = await fetch(`/api/categories/${categorySlug}`);
-        if (!subRes.ok) throw new Error(`Failed to fetch subcommands for ${categorySlug}`);
-        const subData = await subRes.json();
-        setSubcommands(subData);
-
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'An unknown error occurred');
-        console.error(err);
-      } finally {
-        setIsLoading(false);
-      }
+    if (!category) {
+      notFound();
     }
-    fetchData();
-  }, [categorySlug]);
 
-  if (isLoading) {
-    return <div className="container mx-auto p-8 text-center">Loading...</div>;
+    subcommands = await getSubcommandsForCategory(categorySlug);
+  } catch (err) {
+    console.error(`Error fetching data for category ${categorySlug}:`, err);
+    // Most "not found" scenarios are handled by the explicit notFound() call.
+    // This catch is for other unexpected errors during data fetching.
+    fetchError = err instanceof Error ? err.message : 'An unknown server error occurred.';
   }
 
-  if (error) {
-    return <div className="container mx-auto p-8 text-center text-destructive">{error}</div>;
+  if (fetchError) {
+    return <div className="container mx-auto p-8 text-center text-destructive">{fetchError}</div>;
   }
 
+  // Category should be guaranteed to be non-null here due to the notFound() call,
+  // but as a fallback or if logic changes:
   if (!category) {
+    // This path should ideally not be reached if notFound() works as expected.
     return <div className="container mx-auto p-8 text-center">Category details not found.</div>;
   }
 
-
   return (
     <div className="container mx-auto p-4 md:p-8 min-h-screen">
-      <Button variant="outline" onClick={() => router.back()} className="mb-6">
-        <ChevronLeft className="mr-2 h-4 w-4" /> Back to Categories
+      <Button variant="outline" className="mb-6" asChild>
+        <Link href="/">
+          <ChevronLeft className="mr-2 h-4 w-4" /> Back to Categories
+        </Link>
       </Button>
 
       <header className="mb-8 text-center">
