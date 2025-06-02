@@ -1,25 +1,17 @@
-import type { Subcommand } from '@/types';
+import { subCommandBuilder } from "@/lib/data-builder";
+import type { Subcommand } from "@/types";
+
+const kubectlSubCommand = (subcommandSlug: string, description: string) =>
+  subCommandBuilder("kubectl", subcommandSlug, description);
 
 export const subcommands: Subcommand[] = [
-  {
-    slug: 'kubectl-get',
-    categorySlug: 'kubectl',
-    name: 'get',
-    shortDescription: 'Display one or many resources.',
-    markdownPath: 'kubectl/get.md',
-  },
-  {
-    slug: 'kubectl-describe',
-    categorySlug: 'kubectl',
-    name: 'describe',
-    shortDescription: 'Show details of a specific resource or group of resources.',
-    markdownPath: 'kubectl/describe.md',
-  },
-  {
-    slug: 'kubectl-apply',
-    categorySlug: 'kubectl',
-    name: 'apply',
-    shortDescription: 'Apply a configuration to a resource by filename or stdin.',
-    markdownPath: 'kubectl/apply.md',
-  },
+  kubectlSubCommand(
+    "apply",
+    "Apply a configuration to a resource by filename or stdin."
+  ),
+  kubectlSubCommand(
+    "describe",
+    "Show details of a specific resource or group of resources."
+  ),
+  kubectlSubCommand("get", "Display one or many resources."),
 ];

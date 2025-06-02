@@ -1,32 +1,15 @@
-import type { Subcommand } from '@/types';
+import { subCommandBuilder } from "@/lib/data-builder";
+import type { Subcommand } from "@/types";
+
+const gitSubCommand = (subCommandSlug: string, description: string) =>
+  subCommandBuilder("git", subCommandSlug, description);
 
 export const subcommands: Subcommand[] = [
-  {
-    slug: 'git-commit',
-    categorySlug: 'git',
-    name: 'commit',
-    shortDescription: 'Record changes to the repository.',
-    markdownPath: 'git/commit.md',
-  },
-  {
-    slug: 'git-branch',
-    categorySlug: 'git',
-    name: 'branch',
-    shortDescription: 'List, create, or delete branches.',
-    markdownPath: 'git/branch.md',
-  },
-  {
-    slug: 'git-tag',
-    categorySlug: 'git',
-    name: 'tag',
-    shortDescription: 'Create, list, delete or verify a tag object signed with GPG.',
-    markdownPath: 'git/tag.md',
-  },
-  {
-    slug: 'git-checkout',
-    categorySlug: 'git',
-    name: 'checkout',
-    shortDescription: 'Switch branches or restore working tree files.',
-    markdownPath: 'git/checkout.md',
-  },
+  gitSubCommand("branch", "List, create, or delete branches."),
+  gitSubCommand("checkout", "Switch branches or restore working tree files."),
+  gitSubCommand("commit", "Record changes to the repository."),
+  gitSubCommand(
+    "tag",
+    "Create, list, delete or verify a tag object signed with GPG."
+  ),
 ];

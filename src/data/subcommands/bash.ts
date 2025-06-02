@@ -1,25 +1,11 @@
-import type { Subcommand } from '@/types';
+import { subCommandBuilder } from "@/lib/data-builder";
+import type { Subcommand } from "@/types";
+
+const bashSubCommand = (subcommandSlug: string, description: string) =>
+  subCommandBuilder("bash", subcommandSlug, description);
 
 export const subcommands: Subcommand[] = [
-  {
-    slug: 'bash-ls',
-    categorySlug: 'bash',
-    name: 'ls',
-    shortDescription: 'List directory contents.',
-    markdownPath: 'bash/ls.md',
-  },
-  {
-    slug: 'bash-cd',
-    categorySlug: 'bash',
-    name: 'cd',
-    shortDescription: 'Change the current directory.',
-    markdownPath: 'bash/cd.md',
-  },
-  {
-    slug: 'bash-grep',
-    categorySlug: 'bash',
-    name: 'grep',
-    shortDescription: 'Print lines matching a pattern.',
-    markdownPath: 'bash/grep.md',
-  },
+  bashSubCommand("cd", "Change the current directory."),
+  bashSubCommand("grep", "Print lines matching a pattern."),
+  bashSubCommand("ls", "List directory contents."),
 ];
