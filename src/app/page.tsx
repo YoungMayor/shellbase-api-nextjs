@@ -8,6 +8,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Search, ExternalLink } from 'lucide-react';
 import IconRenderer from '@/components/common/IconRenderer';
+import { ThemeToggle } from '@/components/common/ThemeToggle';
+
 
 export default function AdminPage() {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -67,8 +69,11 @@ export default function AdminPage() {
 
   return (
     <div className="container mx-auto p-4 md:p-8 min-h-screen">
-      <header className="mb-8 text-center">
-        <h1 className="text-4xl font-bold text-primary font-headline">Cheatography API Admin</h1>
+      <header className="mb-8 text-center relative">
+        <div className="absolute top-0 right-0">
+          <ThemeToggle />
+        </div>
+        <h1 className="text-4xl font-bold text-primary font-headline pt-4">Cheatography</h1>
         <p className="text-muted-foreground">Browse and test your CLI cheatsheet data.</p>
       </header>
 
@@ -146,7 +151,11 @@ export default function AdminPage() {
         </div>
       </section>
        <footer className="text-center mt-12 py-6 border-t">
-        <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} Cheatography API. Built with Next.js.</p>
+        <p className="text-sm text-muted-foreground">
+          &copy; {new Date().getFullYear()} Cheatography. Built with Next.js.
+          <span className="mx-1">|</span> 
+          <Link href="/api-docs" className="text-accent hover:underline">API Docs</Link>
+        </p>
       </footer>
     </div>
   );
