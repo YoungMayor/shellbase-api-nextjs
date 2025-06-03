@@ -7,10 +7,25 @@ import { ChevronLeft, Command, ExternalLink } from 'lucide-react';
 import IconRenderer from '@/components/common/IconRenderer';
 import { getCategories, getSubcommandsForCategory } from '@/lib/file-system';
 import { notFound } from 'next/navigation';
+import { PROJECT_NAME, PROJECT_AUTHOR, PROJECT_AUTHOR_LINK } from '@/config/constants';
 
 interface CategoryPageProps {
   params: {
     categorySlug: string;
+  };
+}
+
+export async function generateMetadata({ params }: CategoryPageProps) {
+  const allCategories = await getCategories();
+  const category = allCategories.find(c => c.slug === params.categorySlug);
+  if (!category) {
+    return {
+      title: 'Category Not Found',
+    };
+  }
+  return {
+    title: `${category.name} Commands`,
+    description: `Browse ${category.name} commands on ${PROJECT_NAME}. ${category.description}`,
   };
 }
 
@@ -40,14 +55,14 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   }
 
   if (!category) {
-    return <div className="container mx-auto p-8 text-center">Category details not found.</div>;
+    notFound(); // Should be caught above, but as a safeguard
   }
 
   return (
-    <div className="container mx-auto p-4 md:p-8 min-h-screen">
-      <Button variant="outline" className="mb-6" asChild>
+    <div className="container mx-auto p-4 md:p-8">
+      <Button variant="outline" className="mb-6 mt-6" asChild>
         <Link href="/">
-          <ChevronLeft className="mr-2 h-4 w-4" /> Back to Categories
+          <ChevronLeft className="mr-2 h-4 w-4" /> Back to All Categories
         </Link>
       </Button>
 
@@ -86,8 +101,10 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         ))}
       </div>
        <footer className="text-center mt-12 py-6 border-t">
-        <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} MayR Labs. ShellBase is a product of MayR Labs.</p>
+        <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} <Link href={PROJECT_AUTHOR_LINK} target="_blank" rel="noopener noreferrer" className="hover:underline">{PROJECT_AUTHOR}</Link>. {PROJECT_NAME} is a product of {PROJECT_AUTHOR}.</p>
       </footer>
     </div>
   );
 }
+
+    
