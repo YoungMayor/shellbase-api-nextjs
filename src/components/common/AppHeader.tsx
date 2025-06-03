@@ -1,7 +1,8 @@
 
 "use client";
 
-import { useState, type FormEvent } from 'react';
+import type { FormEvent } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -32,16 +33,16 @@ export default function AppHeader() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
         <div className="mr-4 hidden md:flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
+          <Link href="/" className="pl-2 mr-6 flex items-center space-x-2">
             <Image src="/icon.png" alt={`${PROJECT_NAME} Icon`} width={32} height={32} className="h-8 w-8" priority />
-            <Image src="/wordmark.png" alt={`${PROJECT_NAME} Wordmark`} width={120} height={32} className="h-8 hidden sm:inline-block" />
+            <Image src="/wordmark.png" alt={`${PROJECT_NAME} Wordmark`} width={128} height={32} className="h-8 hidden sm:inline-block" />
           </Link>
         </div>
 
         <div className="md:hidden flex-1">
-           <Link href="/" className="flex items-center space-x-2">
+           <Link href="/" className="pl-2 flex items-center space-x-2">
             <Image src="/icon.png" alt={`${PROJECT_NAME} Icon`} width={28} height={28} className="h-7 w-7" priority />
-            <Image src="/wordmark.png" alt={`${PROJECT_NAME} Wordmark`} width={100} height={28} className="h-7" />
+            <Image src="/wordmark.png" alt={`${PROJECT_NAME} Wordmark`} width={112} height={28} className="h-7" />
           </Link>
         </div>
         
