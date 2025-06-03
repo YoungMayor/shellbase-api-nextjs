@@ -33,19 +33,15 @@ export default function AppHeader() {
       <div className="container flex h-16 items-center">
         <div className="mr-4 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <Image src="/shellbase.png" alt={`${PROJECT_NAME} Logo`} width={32} height={32} className="h-8 w-8" priority />
-            <span className="hidden font-bold sm:inline-block">
-              {PROJECT_NAME}
-            </span>
+            <Image src="/icon.png" alt={`${PROJECT_NAME} Icon`} width={32} height={32} className="h-8 w-8" priority />
+            <Image src="/wordmark.png" alt={`${PROJECT_NAME} Wordmark`} width={120} height={32} className="h-8 hidden sm:inline-block" />
           </Link>
         </div>
 
         <div className="md:hidden flex-1">
            <Link href="/" className="flex items-center space-x-2">
-            <Image src="/shellbase.png" alt={`${PROJECT_NAME} Logo`} width={28} height={28} className="h-7 w-7" priority />
-             <span className="font-bold text-lg">
-              {PROJECT_NAME}
-            </span>
+            <Image src="/icon.png" alt={`${PROJECT_NAME} Icon`} width={28} height={28} className="h-7 w-7" priority />
+            <Image src="/wordmark.png" alt={`${PROJECT_NAME} Wordmark`} width={100} height={28} className="h-7" />
           </Link>
         </div>
         
@@ -97,5 +93,3 @@ export default function AppHeader() {
     </header>
   );
 }
-
-    

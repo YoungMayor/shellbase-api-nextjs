@@ -4,6 +4,7 @@
 import type { Category, SearchResult } from '@/types';
 import { useEffect, useState, Suspense } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ExternalLink } from 'lucide-react';
@@ -13,7 +14,7 @@ import {
   PROJECT_NAME, 
   PROJECT_AUTHOR, 
   PROJECT_AUTHOR_LINK,
-  PROJECT_DESCRIPTION
+  // PROJECT_DESCRIPTION // No longer used here
 } from '@/config/constants';
 
 
@@ -91,10 +92,14 @@ function PageContent() {
   return (
       <div className="container mx-auto p-4 md:p-8">
         <section className="my-8 text-center">
-          <h1 className="text-4xl font-bold mb-2 font-headline">{PROJECT_NAME}</h1>
-          <p className="text-muted-foreground text-lg">
-            {PROJECT_DESCRIPTION}
-          </p>
+          <Image 
+            src="/wordmark.png" 
+            alt={`${PROJECT_NAME} Wordmark`} 
+            width={240} 
+            height={60} 
+            className="mx-auto mb-4"
+            priority
+          />
           <p className="text-sm text-muted-foreground mt-1">
             Browse commands or use the search bar above.
           </p>
@@ -179,5 +184,3 @@ export default function AdminPage() {
     </Suspense>
   );
 }
-
-    
