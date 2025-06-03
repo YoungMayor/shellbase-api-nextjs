@@ -1,11 +1,17 @@
+
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "next-themes";
+import AppHeader from '@/components/common/AppHeader';
+import { PROJECT_NAME, PROJECT_DESCRIPTION } from '@/config/constants';
 
 export const metadata: Metadata = {
-  title: 'ShellBase',
-  description: 'ShellBase: Your one-stop cheatsheet API for command-line power tools.',
+  title: {
+    default: PROJECT_NAME,
+    template: `%s | ${PROJECT_NAME}`,
+  },
+  description: PROJECT_DESCRIPTION,
 };
 
 export default function RootLayout({
@@ -20,17 +26,22 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
-      <body className="font-body antialiased">
+      <body className="font-body antialiased min-h-screen flex flex-col">
         <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
           >
-          {children}
+          <AppHeader />
+          <main className="flex-grow">
+            {children}
+          </main>
           <Toaster />
         </ThemeProvider>
       </body>
     </html>
   );
 }
+
+    
