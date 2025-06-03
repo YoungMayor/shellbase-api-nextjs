@@ -5,27 +5,26 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Separator } from '@/components/ui/separator';
-import { ThemeToggle } from '@/components/common/ThemeToggle';
+import { Terminal } from 'lucide-react';
 import Link from 'next/link';
-import { ChevronLeft, Terminal } from 'lucide-react';
+import { PROJECT_NAME, PROJECT_AUTHOR, PROJECT_AUTHOR_LINK } from '@/config/constants';
 
 interface ApiParam {
   name: string;
   in: 'path' | 'query';
   description: string;
   required: boolean;
-  type: 'string' | 'integer'; // Simplified type
+  type: 'string' | 'integer';
 }
 
 interface ApiEndpoint {
   id: string;
-  method: 'GET'; // Currently only GET is supported by existing APIs
-  path: string; // e.g., /api/categories/{categorySlug}
-  pathTemplate: string; // e.g., /api/categories/:categorySlug - for display
+  method: 'GET'; 
+  path: string; 
+  pathTemplate: string; 
   summary: string;
   parameters: ApiParam[];
 }
@@ -68,7 +67,7 @@ const apiEndpoints: ApiEndpoint[] = [
   {
     id: 'search-commands',
     method: 'GET',
-    path: '/api/search', // Query param will be appended
+    path: '/api/search', 
     pathTemplate: '/api/search?q=:query',
     summary: 'Searches for categories and commands based on a query string.',
     parameters: [
@@ -86,7 +85,6 @@ export default function ApiDocsPage() {
   const [availableCategorySlugs, setAvailableCategorySlugs] = useState<string[]>([]);
 
   useEffect(() => {
-    // Fetch category slugs to provide examples
     async function fetchCategories() {
       try {
         const res = await fetch('/api/categories');
@@ -140,7 +138,7 @@ export default function ApiDocsPage() {
 
     try {
       const res = await fetch(finalUrl, { method: endpoint.method });
-      const responseBody = await res.json().catch(() => res.text()); // Try JSON, fallback to text
+      const responseBody = await res.json().catch(() => res.text()); 
       
       const responseHeaders: Record<string, string> = {};
       res.headers.forEach((value, key) => {
@@ -177,23 +175,13 @@ export default function ApiDocsPage() {
 
 
   return (
-    <div className="container mx-auto p-4 md:p-8 min-h-screen">
-      <header className="mb-8 relative">
-        <div className="absolute top-0 right-0">
-          <ThemeToggle />
-        </div>
-        <div className="flex items-center mb-4">
-           <Button variant="outline" size="sm" asChild className="mr-4">
-            <Link href="/">
-              <ChevronLeft className="mr-1 h-4 w-4" /> Back to Home
-            </Link>
-          </Button>
-          <h1 className="text-3xl md:text-4xl font-bold text-primary font-headline">API Documentation & Tester</h1>
-        </div>
-        <p className="text-muted-foreground">
-          Explore and test the ShellBase API endpoints.
+    <div className="container mx-auto p-4 md:p-8">
+      <div className="mb-8 pt-6">
+        <h1 className="text-3xl md:text-4xl font-bold text-primary font-headline text-center">API Documentation & Tester</h1>
+        <p className="text-muted-foreground text-center mt-2">
+          Explore and test the {PROJECT_NAME} API endpoints.
         </p>
-      </header>
+      </div>
 
       <Accordion type="single" collapsible className="w-full space-y-4">
         {apiEndpoints.map((endpoint) => (
@@ -203,7 +191,6 @@ export default function ApiDocsPage() {
                 <span 
                   className={`text-sm font-semibold px-2.5 py-0.5 rounded-md
                     ${endpoint.method === 'GET' ? 'bg-sky-500 text-white' : ''} 
-                    // Add more colors for other methods
                   `}
                 >
                   {endpoint.method}
@@ -295,8 +282,10 @@ export default function ApiDocsPage() {
         ))}
       </Accordion>
       <footer className="text-center mt-12 py-6 border-t">
-        <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} MayR Labs. ShellBase is a product of MayR Labs.</p>
+        <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} <Link href={PROJECT_AUTHOR_LINK} target="_blank" rel="noopener noreferrer" className="hover:underline">{PROJECT_AUTHOR}</Link>. {PROJECT_NAME} is a product of {PROJECT_AUTHOR}.</p>
       </footer>
     </div>
   );
 }
+
+    
